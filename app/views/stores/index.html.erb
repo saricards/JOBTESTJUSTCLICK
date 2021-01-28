@@ -1,0 +1,31 @@
+<h1>Listado de Tiendas</h1>
+<%= link_to "Crear Tienda", stores_new_path %>
+<section class="wrapper">
+  <main class="row title">
+    <ul>
+      <li>Nombre</li>
+      <li>Street</li>
+      <li>Number</li>
+      <li>Zip Code</li>
+      <li>City</li>
+      <li>Country</li>
+      <li>Products</li>
+    </ul>
+  </main>
+      <% @stores.each do |store| %>
+      <section class="row-fadeIn-wrapper">
+        <article class="row fadeIn nfl">
+        <ul>
+          <li><%= store.name %></li>
+          <li><%= store.street %></li>
+          <li><%= store.number %></li>
+          <li><%= store.zip_code %></li>
+          <li><%= store.city %></li>
+          <li><%= store.country %></li>
+          <li><%= store.products %></li>
+          <li><%= link_to "Editar", edit_store_path(store) %> <%= link_to "Eliminar", store, method: :delete, data: { confirm:"Esta seguro de eliminar esta tienda?"} %></li>
+        </ul>
+      </article>
+    </section>
+      <% end %>
+</section>

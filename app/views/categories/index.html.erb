@@ -1,0 +1,22 @@
+<h1>Listado de Categorias</h1>
+<%= link_to "Crear Categoria", categories_new_path %>
+<section class="wrapper">
+  <main class="row title">
+    <ul>
+      <li>Nombre</li>
+      <li>Keywords</li>
+    </ul>
+  </main>
+      <% @categories.each do |category| %>
+      <section class="row-fadeIn-wrapper">
+        <article class="row fadeIn nfl">
+        <ul>
+          <li><%= category.name %></li>
+          <li><%= category.keywords %></li>
+          <li><%= link_to "Editar", edit_category_path(category) %> </li>
+          <li><%= link_to "Eliminar", category, method: :delete, data: { confirm:"Esta seguro de eliminar esta categoria?"} %></li>
+        </ul>
+      </article>
+    </section>
+      <% end %>
+</section>

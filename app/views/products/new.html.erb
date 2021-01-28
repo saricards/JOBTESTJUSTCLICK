@@ -1,0 +1,32 @@
+<%= form_for @product do |f| %>
+<div style="text-align: center;">
+  <h2>Nuevo Producto</h2>
+  <div>
+     <%= f.label :name %>
+     <%= f.text_field :name, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :color %>
+     <%= f.text_field :color, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :category %>
+     <%= collection_select(:product, :category, Category.all.order(:name), :name, :name, {selected: Category.find_by_name(:name)}) %>
+  </div><br>
+  <div>
+     <%= f.label :size %>
+     <%= f.text_field :size, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :price %>
+     <%= f.number_field :price, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :stores %>
+     <%= collection_select(:product, :stores, Store.all.order(:name), :name, :name, {selected: Store.find_by_name(:name)}) %>
+  </div><br>
+  <div>
+     <%= f.submit %>
+  </div>
+</div>
+<% end %>

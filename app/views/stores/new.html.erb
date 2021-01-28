@@ -1,0 +1,36 @@
+<%= form_for @store do |f| %>
+<div style="text-align: center;">
+  <h2>Nueva Tienda</h2>
+  <div>
+     <%= f.label :name %>
+     <%= f.text_field :name, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :street %>
+     <%= f.text_field :street, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :number %>
+     <%= f.number_field :number, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :zip_code %>
+     <%= f.number_field :zip_code, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :city %>
+     <%= f.text_field:city, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :country %>
+     <%= f.text_field :country, :required => true %>
+  </div><br>  
+  <div>
+     <%= f.label :products %>
+     <%= collection_select(:store, :products, Product.all.order(:name), :name, :name, {selected: Product.find_by_name(:name)}) %>
+  </div><br>
+  <div>
+     <%= f.submit %>
+  </div>
+</div>
+<% end %>

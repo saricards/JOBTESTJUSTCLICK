@@ -1,0 +1,16 @@
+<%= form_for @category do |f| %>
+<div style="text-align: center;">
+  <h2>Nueva Categoria</h2>
+  <div>
+     <%= f.label :name %>
+     <%= f.text_field :name, :required => true %>
+  </div><br>
+  <div>
+     <%= f.label :keywords %>
+     <%= f.text_field :keywords, :required => true %>
+  </div><br>
+  <div>
+     <%= f.submit %>
+  </div>
+</div>
+<% end %>

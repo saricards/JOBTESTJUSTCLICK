@@ -1,0 +1,34 @@
+<%= form_for @product do |f| %>
+<div>
+<h2>Editar Producto</h2>
+  <div>
+     <%= f.label :name %>
+     <%= f.text_field :name, :required => true %>
+  </div>
+  <div>
+     <%= f.label :color %>
+     <%= f.text_field :color, :required => true %>
+  </div>
+  <div>
+     <%= f.label :category %>
+     <%= f.select :category,options_from_collection_for_select(Category.all.order(:name), :name, :name, f.object.category)%>
+
+  </div>
+  <div>
+     <%= f.label :size %>
+     <%= f.text_field :size, :required => true %>
+  </div>
+  <div>
+     <%= f.label :price %>
+     <%= f.number_field :price, :required => true %>
+  </div>
+  <div>
+     <%= f.label :stores %>
+     <%= f.select :stores,options_from_collection_for_select(Store.all.order(:name), :name, :name, f.object.stores)%>
+  </div>
+  <div>&nbsp;</div>
+  <div>
+     <%= f.submit %>
+  </div>
+</div>
+<% end %>

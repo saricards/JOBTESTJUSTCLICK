@@ -1,0 +1,30 @@
+<h1>Listado de Productos</h1>
+<%= link_to "Crear Producto", products_new_path %>
+<section class="wrapper">
+  <main class="row title">
+    <ul>
+      <li>Nombre</li>
+      <li>Color</li>
+      <li>Category</li>
+      <li>Size</li>
+      <li>Price</li>
+      <li>Stores</li>
+    </ul>
+  </main>
+      <% @products.each do |product| %>
+      <section class="row-fadeIn-wrapper">
+        <article class="row fadeIn nfl">
+        <ul>
+          <li><%= product.name %></li>
+          <li><%= product.color %></li>
+          <li><%= product.category %></li>
+          <li><%= product.size %></li>
+          <li><%= product.price %></li>
+          <li><%= product.stores %></li>
+          <li><%= link_to "Editar", edit_product_path(product) %></li>
+          <li><%= link_to "Eliminar", product, method: :delete, data: { confirm:"Esta seguro de eliminar este producto?"} %></li>
+        </ul>
+      </article>
+    </section>
+      <% end %>
+</section>
